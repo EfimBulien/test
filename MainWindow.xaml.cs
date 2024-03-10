@@ -9,9 +9,9 @@ namespace test
     public partial class MainWindow
     {
         private readonly MediaPlayer _mediaPlayer = new MediaPlayer();
-        private readonly List<string> _listeningHistory = new List<string>();
-        private List<string> _musicFiles = new List<string>();
+        private readonly List<string> _listeningHistory = [];
         private readonly DispatcherTimer _timer;
+        private List<string> _musicFiles = [];
         private int _currentTrackIndex;
         private bool _isRepeating;
         private bool _isShuffling;
@@ -74,9 +74,7 @@ namespace test
         {
             var fileName = Path.GetFileName(song);
             if (!_listeningHistory.Contains(fileName))
-            {
                 _listeningHistory.Add(fileName);
-            }
         }
         
         private void MediaPlayer_MediaEnded(object? sender, EventArgs e)
@@ -191,7 +189,6 @@ namespace test
         private void VolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             _mediaPlayer.Volume = VolumeSlider.Value;
-            
         }
         
         private void Timer_Tick(object? sender, EventArgs e)

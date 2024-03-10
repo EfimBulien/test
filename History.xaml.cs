@@ -18,9 +18,7 @@ public partial class History
     private void PopulateListeningHistory()
     {
         foreach (var item in _listeningHistory.Select(song => new ListBoxItem { Content = song }))
-        {
             HistoryListBox.Items.Add(item);
-        }
     }
     
     private void HistoryListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
